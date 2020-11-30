@@ -17,9 +17,12 @@ const isAdmin = require('./middleware/checkPermission');
 
 const config = {
     user: 'csdl',
-    password: '123456',
+    password: '123456789',
     server: 'localhost',
     database: 'WebCSDL',
+    options: {
+        encrypt: false
+    }
 };
 
 sql.connect(config, (err, pool) => {
