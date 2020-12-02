@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../Css/menu.css';
+import '../../Css/menu.css';
 import axios from '../axios';
 import NavBar from './NavBar';
 
@@ -11,7 +11,7 @@ class Menu extends Component {
             trendingproducts: [],
             products: [],
             total: 0,
-            currentCategory: 'Hamburger',
+            currentCategory: this.props.category,
             currentPageNumber: 1,
             maxPageNumber: 1,
             menu: true,
@@ -168,7 +168,7 @@ class Menu extends Component {
                             <div className="main-menu-top">VỊ NGON TRÊN TỪNG MÓNG TAY♪♫♪♫</div>
                             <div className="main-menu-center">{this.state.currentCategory}</div>
                             <div className="main-menu-bottom">
-                                Với công thức từ đất nước Ý cùng với hương vị truyền thống quê nhà!!!
+                                Được tạo nên từ những nguyên liệu thượng hạng.
                         </div>
                         </div>
 
