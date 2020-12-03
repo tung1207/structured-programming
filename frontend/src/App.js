@@ -5,9 +5,7 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Home from './containers/Home';
 import Product from './components/Product';
-import MenuPizza from './components/MenuPizza';
-import MenuBurger from './components/MenuBurger';
-import MenuMilktea from './components/MenuMilktea';
+import Menu from './components/Menu';
 import Cart from './components/Cart';
 import OrderList from './components/OrderList';
 import OrderDetail from './components/OrderDetail';
@@ -164,13 +162,13 @@ Increase = (item,event) => {
                 return <OrderDetail {...props} state={this.state} />
               }} />
               <Route exact path="/menupizza" render={(props) => {
-                return <MenuPizza {...props} addtoCart={this._addtoCart}state={this.state} />
+                return <Menu {...props} addtoCart={this._addtoCart}state={this.state} category={"Pizza"} />
               }} />
               <Route exact path="/menuburger" render={(props) => {
-                return <MenuBurger {...props} addtoCart={this._addtoCart}state={this.state} />
+                return <Menu {...props} addtoCart={this._addtoCart}state={this.state} category={"Hamburger"} />
               }} />
               <Route exact path="/menumilktea" render={(props) => {
-                return <MenuMilktea {...props} addtoCart={this._addtoCart} state={this.state} />
+                return <Menu {...props} addtoCart={this._addtoCart} state={this.state} category={"Milktea"} />
               }} />
               <Route exact path="/order/list/:orderID" render={(props) => {
                 return <OrderListSearch {...props} state={this.state} />
