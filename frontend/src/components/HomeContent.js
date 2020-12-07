@@ -30,7 +30,7 @@ class HomeContent extends Component {
     }
     getData = async (pageNumber) => {
         try {
-            const data = await fetch(`http://localhost:5000/filter/category?pageNumber=${pageNumber}&pageSize=5&category=${this.state.currentCategory}`,
+            const data = await fetch(`http://localhost:5000/filter/category?pageNumber=${pageNumber}&pageSize=4&category=${this.state.currentCategory}`,
             ).then((res) => { return res.json(); });
             this.setState({
                 total: data.data.total,
@@ -77,13 +77,13 @@ class HomeContent extends Component {
                 <div className="trending-item" data-aos="fade-right" data-aos-delay="500">
                     <div className="trending-item-img">
                         <a href={`/product/${item.ProductID}`} target="__blank">
-                            <img src={`http://localhost:5000/image/products/${item.Image}.png`} alt={item.Name} 
-                            style={{
-                                backgroundPosition: 'center',
-                                backgroundRepeat: 'no-repeate',
-                                height: '300px',
-                                width: '100%'
-                            }}/>
+                            <img src={`http://localhost:5000/image/products/${item.Image}.png`} alt={item.Name}
+                                style={{
+                                    backgroundPosition: 'center',
+                                    backgroundRepeat: 'no-repeate',
+                                    height: '300px',
+                                    width: '100%'
+                                }} />
                         </a>
                     </div>
                     <div className="trending-item-text">
@@ -142,29 +142,24 @@ class HomeContent extends Component {
                     <a href="/">Trang chủ</a>
                 </div>
                 {/* Carousel */}
-                <div id="carouselExampleIndicators" className="carousel slide my-carousel" data-ride="carousel">
-                    <ol className="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
+                <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
                     <div className="carousel-inner">
                         <div className="carousel-item active">
-                            <img src='http://localhost:5000/image/products/carousel-4.jpg' className="d-block w-100 my-img" alt="carousel4" />
+                            <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(35).jpg" className="d-block w-100" alt="..." />
                         </div>
                         <div className="carousel-item">
-                            <img src='http://localhost:5000/image/products/carousel-5.jpg' className="d-block w-100 my-img" alt="carousel5" />
+                            <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(31).jpg" className="d-block w-100" alt="..." />
                         </div>
                         <div className="carousel-item">
-                            <img src='http://localhost:5000/image/products/carousel-6.jpg' className="d-block w-100 my-img" alt="carousel6" />
+                            <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg" className="d-block w-100" alt="..." />
                         </div>
                     </div>
-                    <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true" />
                         <span className="sr-only">Previous</span>
                     </a>
-                    <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                    <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true" />
                         <span className="sr-only">Next</span>
                     </a>
                 </div>
@@ -180,10 +175,10 @@ class HomeContent extends Component {
                 {/* main-menu */}
                 <div className="main-menu-2">
                     <div className="main-menu-header">
-                        <div className="main-menu-top">VỊ NGON TRÊN TỪNG MÓNG TAY♪♫♪♫ </div>
+                        <div className="main-menu-top">Sản phẩm chất lượng nhất♪♫♪♫ </div>
                         <div className="main-menu-center">Choose & enjoy</div>
                         <div className="main-menu-bottom">
-                            Thực đơn gồm có Hamburger, Pizza và Milktea hảo hạng. Nhanh tay đặt hàng thôi.
+                            Nhanh tay đặt hàng ngay hôm nay
                         </div>
                     </div>
                     {/* pagination */}
@@ -196,8 +191,8 @@ class HomeContent extends Component {
                                 });
                                 this.getData(1);
                             }} >
-                            <i className="fas fa-pizza-slice"></i>
-                            <h2>Pizza</h2>
+                            <i class="fas fa-tshirt"></i>
+                            <h2>Áo</h2>
                         </div>
                         <div className="pagination-item pag-2"
                             onClick={() => {
@@ -207,8 +202,8 @@ class HomeContent extends Component {
                                 });
                                 this.getData(1);
                             }} >
-                            <i className="fas fa-hamburger"></i>
-                            <h2>Burger</h2>
+                            <i class="fas fa-socks"></i>
+                            <h2>Quần</h2>
                         </div>
                         <div className="pagination-item pag-3"
                             onClick={() => {
@@ -218,8 +213,8 @@ class HomeContent extends Component {
                                 });
                                 this.getData(1);
                             }} >
-                            <i className="fas fa-cocktail"></i>
-                            <h2>Milk Tea</h2>
+                            <i class="fas fa-shopping-bag"></i>
+                            <h2>Phụ kiện</h2>
                         </div>
                     </div>
                     {/* main-manu-display */}

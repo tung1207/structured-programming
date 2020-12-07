@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../Css/header.css';
-import logo from '../logo.png';
+import logo from '../Images/logo.png'
 import pizza from '../pizaa-1.jpg';
 import burger from '../hamburger-nav.png';
 import milktea from '../milktea-nav.jpg';
@@ -21,7 +21,7 @@ class NavBar extends Component {
         })
         if (event.target.name === 'productSearch') {
             if (event.target.value !== '') {
-                axios.get(`/product/list?pageNumber=1&pageSize=5&keyword=${event.target.value}`)
+                axios.get(`/product/list?pageNumber=1&pageSize=4&keyword=${event.target.value}`)
                     .then(data => {
                         this.setState({
                             products: data.data.data.recordset
@@ -152,130 +152,149 @@ class NavBar extends Component {
                 </a>
             )
         return (
-            <div className='header-container'>
-                <div className="header">
-                    <div className="top-header">
-                        <div className="support">
-                            <i className="fas fa-headset"></i>
-                            <span className="title-support">Điện thoại hỗ trợ</span>
-                            <span className="phone-support">19001009</span>
-                            <span className="support">|</span>
-                            <span>
-                                Follow us
-                                <a href="https://www.facebook.com/tatuan19" target="__blank"><i className="fab fa-facebook"></i></a>
-                                <a href="https://www.instagram.com/locckhl/?hl=vi" target="__blank"><i className="fab fa-instagram"></i></a>
-                                <a href="https://www.youtube.com/channel/UCiF_9u_6OLFuQ5UZe8il94w?view_as=subscriber"><i className="fab fa-youtube"></i></a>
-                            </span>
-                        </div>
-                        <div className="user">
-                            {SignUp}
-                            {SignIn}
-                            {LogOut}
-                        </div>
-                    </div>
-                    {/* bottom-header */}
-                    <div className="bottom-header">
-                        <div className="logo">
-                            <a href="/">
-                                <img src={logo} alt="logo" />
-                            </a>
-
-                        </div>
-                        <div className="nav">
-                            <ul className="nav-ul">
-                                <li><a href="/"><b>TRANG CHỦ</b></a></li>
-                                <li><a href='/'>
-                                    <b>MENU</b>
-                                    <i className="fas fa-sort-down"></i>
-                                    <div id="sub-nav">
-                                        <div className="sub-nav-item-container">
-                                            <div className="sub-nav-item">
-                                                <a href='/menuPizza'><img src={pizza} alt="" style={{
-                                                    backgroundPosition: 'center',
-                                                    backgroundRepeat: 'no-repeate',
-                                                    height: '90px',
-                                                    width: '90px'
-                                                }} /></a>
-                                                <span>Pizza</span>
-                                            </div>
-                                            <div className="sub-nav-item">
-                                                <a href='/menuBurger'><img src={burger} alt=""
-                                                    style={{
-                                                        backgroundPosition: 'center',
-                                                        backgroundRepeat: 'no-repeate',
-                                                        height: '90px',
-                                                        width: '90px'
-                                                    }} />
-                                                </a>
-                                                <span>Hamburger</span>
-                                            </div>
-                                            <div className="sub-nav-item">
-                                                <a href='/menuMilktea'><img src={milktea} alt=""
-                                                    style={{
-                                                        backgroundPosition: 'center',
-                                                        backgroundRepeat: 'no-repeate',
-                                                        height: '90px',
-                                                        width: '90px'
-                                                    }} /></a>
-                                                <span>Milk Tea</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a></li>
-                                <li><a href="#" onClick={this.viewOrder}><b>ĐƠN HÀNG</b></a></li>
-                            </ul>
-                        </div>
-
-                        <form autoComplete='Off' className="input-form">
-                            <input type="text" name="productSearch" id="productSearch" onChange={this.handleChange} placeholder="Tìm kiếm sản phẩm" />
-                            <div className='search-container-1'>
-                                {prefix}
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a className="navbar-brand" href="#"></a>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon" />
+                </button>
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul className="navbar-nav mr-auto">
+                        <li className="nav-item active">
+                            <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#">Link</a>
+                        </li>
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+              </a>
+                            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a className="dropdown-item" href="#">Action</a>
+                                <a className="dropdown-item" href="#">Another action</a>
+                                <div className="dropdown-divider" />
+                                <a className="dropdown-item" href="#">Something else here</a>
                             </div>
-                            <a>
-                                <button className="i-2" onClick={(e) => this.handleSubmit(e)}>
-                                    <i className="fas fa-search search-icon"></i>
-                                </button>
-                            </a>
-                            <input type="text" name="orderSearch" id="orderSearch" onChange={this.handleChange} placeholder="Tìm kiếm đơn hàng" />
-                            <a href='/order-detail'>
-                                <button className="i-1" onClick={(e) => this.handleSubmit(e)}>
-                                    <i className="fas fa-search search-icon"></i>
-                                </button>
-                            </a>
-                        </form>
-                        {/* <div className="hot-words">
-                            <div className="hot-words-list">
-                                <a href="/product">Pizaa</a>
-                                <a href="/product">Chicken</a>
-                                <a href="/product">Hamburger</a>
-                                <a href="/product">Milk tea</a>
-                                <a href="/product">Pizaa</a>
-                                <a href="/product">Chicken</a>
-                                <a href="/product">Hamburger</a>
-                                <a href="/product">Milk tea</a>
-                            </div>
-                        </div> */}
-                        <div className="cart">
-                            <div className="ic-cart" >
-                                <a href="#" onClick={this.viewCart}>
-                                    <i className="fas fa-cart-plus"></i>
-                                    <span className="number-cart">{this.props.count}</span>
-                                </a>
-                            </div>
-                            <div className="text-cart">
-                                <h5 className="txt-small">Giỏ hàng</h5>
-                                <h4 className="txt-medium">
-                                    {this.props.Total}đ
-                                        <i className="fas fa-sort-down"></i>
-                                </h4>
-                            </div>
-                            <div className="list-cart">
-                                {displayItems}
-                            </div>
-                        </div>
-                    </div>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link disabled" href="#" tabIndex={-1} aria-disabled="true">Disabled</a>
+                        </li>
+                    </ul>
+                    <form className="form-inline my-2 my-lg-0">
+                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+                        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
                 </div>
-            </div>
+            </nav>
+            // <div className='header-container'>
+            //     <div className="header">
+            //         <div className="top-header">
+            //             <div className="support">
+            //                 <i className="fas fa-headset"></i>
+            //                 <span className="title-support">Điện thoại hỗ trợ</span>
+            //                 <span className="phone-support">19001009</span>
+            //                 <span className="support">|</span>
+            //                 <span>
+            //                     Follow us
+            //                     <a href="https://www.facebook.com/tatuan19" target="__blank"><i className="fab fa-facebook"></i></a>
+            //                     <a href="https://www.instagram.com/locckhl/?hl=vi" target="__blank"><i className="fab fa-instagram"></i></a>
+            //                     <a href="https://www.youtube.com/channel/UCiF_9u_6OLFuQ5UZe8il94w?view_as=subscriber"><i className="fab fa-youtube"></i></a>
+            //                 </span>
+            //             </div>
+            //             <div className="user">
+            //                 {SignUp}
+            //                 {SignIn}
+            //                 {LogOut}
+            //             </div>
+            //         </div>
+            //         {/* bottom-header */}
+            //         <div className="bottom-header">
+            //             <div className="logo">
+            //                 <a href="/" className="text-white" style={{
+            //                     fontSize: "1.5rem",
+            //                     fontWeight: "bold"
+
+            //                 }}> STREETWEAR
+            //                 </a>
+
+            //             </div>
+            //             <div className="nav">
+            //                 <ul className="nav-ul">
+            //                     <li><a href="/"><b>TRANG CHỦ</b></a></li>
+            //                     {/* <li><a href='/'>
+            //                         <b>MENU</b>
+            //                         <i className="fas fa-sort-down"></i>
+
+            //                         <div id="sub-nav">
+            //                             <div className="sub-nav-item-container">
+            //                                 <div className="sub-nav-item">
+
+            //                                 </div>
+            //                                 <div className="sub-nav-item">
+
+            //                                 </div>
+            //                                 <div className="sub-nav-item">
+            //                                     <a href='/menuMilktea'>Phụ kiện</a>
+            //                                 </div>
+            //                             </div>
+            //                         </div>
+            //                     </a></li> */}
+            //                     <li><a href='/menuPizza'><b>Áo</b></a></li>
+            //                     <li><a href='/menuBurger'>Quần</a></li>
+            //                     <li><a href="#" onClick={this.viewOrder}><b>ĐƠN HÀNG</b></a></li>
+            //                 </ul>
+            //             </div>
+
+            //             <form autoComplete='Off' className="input-form">
+            //                 <input type="text" name="productSearch" id="productSearch" onChange={this.handleChange} placeholder="Tìm kiếm sản phẩm" />
+            //                 <div className='search-container-1'>
+            //                     {prefix}
+            //                 </div>
+            //                 <a>
+            //                     <button className="i-2" onClick={(e) => this.handleSubmit(e)}>
+            //                         <i className="fas fa-search search-icon"></i>
+            //                     </button>
+            //                 </a>
+            //                 <input type="text" name="orderSearch" id="orderSearch" onChange={this.handleChange} placeholder="Tìm kiếm đơn hàng" />
+            //                 <a href='/order-detail'>
+            //                     <button className="i-1" onClick={(e) => this.handleSubmit(e)}>
+            //                         <i className="fas fa-search search-icon"></i>
+            //                     </button>
+            //                 </a>
+            //             </form>
+            //             {/* <div className="hot-words">
+            //                 <div className="hot-words-list">
+            //                     <a href="/product">Pizaa</a>
+            //                     <a href="/product">Chicken</a>
+            //                     <a href="/product">Hamburger</a>
+            //                     <a href="/product">Milk tea</a>
+            //                     <a href="/product">Pizaa</a>
+            //                     <a href="/product">Chicken</a>
+            //                     <a href="/product">Hamburger</a>
+            //                     <a href="/product">Milk tea</a>
+            //                 </div>
+            //             </div> */}
+            //             <div className="cart">
+            //                 <div className="ic-cart" >
+            //                     <a href="#" onClick={this.viewCart}>
+            //                         <i className="fas fa-cart-plus"></i>
+            //                         <span className="number-cart">{this.props.count}</span>
+            //                     </a>
+            //                 </div>
+            //                 <div className="text-cart">
+            //                     <h5 className="txt-small">Giỏ hàng</h5>
+            //                     <h4 className="txt-medium">
+            //                         {this.props.Total}đ
+            //                             <i className="fas fa-sort-down"></i>
+            //                     </h4>
+            //                 </div>
+            //                 <div className="list-cart">
+            //                     {displayItems}
+            //                 </div>
+            //             </div>
+            //         </div>
+            //     </div>
+            // </div>
         );
     }
 }

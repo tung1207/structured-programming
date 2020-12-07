@@ -162,13 +162,13 @@ Increase = (item,event) => {
                 return <OrderDetail {...props} state={this.state} />
               }} />
               <Route exact path="/menupizza" render={(props) => {
-                return <Menu {...props} addtoCart={this._addtoCart}state={this.state} category={"Pizza"} />
+                return <Menu {...props} addtoCart={this._addtoCart}state={this.state} category={"Áo"} />
               }} />
               <Route exact path="/menuburger" render={(props) => {
-                return <Menu {...props} addtoCart={this._addtoCart}state={this.state} category={"Hamburger"} />
+                return <Menu {...props} addtoCart={this._addtoCart}state={this.state} category={"Quần"} />
               }} />
               <Route exact path="/menumilktea" render={(props) => {
-                return <Menu {...props} addtoCart={this._addtoCart} state={this.state} category={"Milktea"} />
+                return <Menu {...props} addtoCart={this._addtoCart} state={this.state} category={"Phụ kiện"} />
               }} />
               <Route exact path="/order/list/:orderID" render={(props) => {
                 return <OrderListSearch {...props} state={this.state} />

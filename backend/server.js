@@ -12,8 +12,9 @@ const cartRouter = require('./routes/cart.routes');
 const filterRouter = require('./routes/filter.routes');
 const adminRouter = require('./routes/admin.routes');
 
-const isLoggedIn = require('./middleware/checkLogIn');
-const isAdmin = require('./middleware/checkPermission');
+// TODO: for Admin function
+// const isLoggedIn = require('./middleware/checkLogIn');
+// const isAdmin = require('./middleware/checkPermission');
 
 const config = {
     user: 'csdl',
@@ -72,7 +73,6 @@ sql.connect(config, (err, pool) => {
     }
 });
 
-// FIXME: Cai dong nay de lam gi
 sql.on('error', err => {
     // error handler
 });

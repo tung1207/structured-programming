@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../Css/menu.css';
+import '../Css/menu.css'
 import axios from '../axios';
 import NavBar from './NavBar';
 
@@ -165,10 +165,10 @@ class Menu extends Component {
                     {/* main-menu */}
                     <div className="main-menu">
                         <div className="main-menu-header">
-                            <div className="main-menu-top">VỊ NGON TRÊN TỪNG MÓNG TAY♪♫♪♫</div>
+                            <div className="main-menu-top">Sản phẩm chất lượng nhất♪♫♪♫</div>
                             <div className="main-menu-center">{this.state.currentCategory}</div>
                             <div className="main-menu-bottom">
-                                Được tạo nên từ những nguyên liệu thượng hạng.
+                                Đến từ những thương hiệu hàng đầu 
                         </div>
                         </div>
 
